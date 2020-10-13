@@ -1,0 +1,3 @@
+git+https://github.com/Patreon/patreon-python.git@master#egg=patreon
+google-api-python-client
+oauth2client
