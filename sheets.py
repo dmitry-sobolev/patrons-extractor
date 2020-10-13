@@ -73,4 +73,3 @@ def write_patrons(data: List[PatronInfo]):
         }
     ).execute()
 
-    print('DONE')

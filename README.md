@@ -29,3 +29,16 @@ This file contains credentials which are needed to authorize app on Patreon's AP
 Values for all fields except of `expires_at` will fields available [here](https://www.patreon.com/portal/registration/register-clients) after you create client.
 
 `expires_at` contains timestamp until when `access_token` is valid.
+
+Run with docker
+---------------
+
+Build image:
+```
+docker build -t patreon .
+```
+
+Run in container:
+```shell script
+docker container run --rm -v "$(pwd)/credentials.json:/opt/app/credentials.json:ro" -v "$(pwd)/patreon.json:/opt/app/patreon.json" -e "GOOGLE_SHEET_ID=<some kind of ID>" patreon
+```

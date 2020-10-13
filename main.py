@@ -1,6 +1,7 @@
 # Only dependency needed
 import threading
 import time
+from datetime import datetime
 
 from patrons import get_patrons
 from sheets import write_patrons
@@ -29,10 +30,11 @@ def periodic_task(interval, times=-1):
 @periodic_task(86400)
 def my_periodic_task():
     # This function is executed every 10 seconds
+    print(f'{datetime.now().isoformat()} - start')
     patrons = get_patrons()
-    print("Patrons: ", patrons)
-
+    print(f'{datetime.now().isoformat()} - patrons list acquired ({len(patrons)} items)')
     write_patrons(patrons)
+    print(f'{datetime.now().isoformat()} - DONE')
 
 
 def run():
